@@ -89,10 +89,11 @@ export default DeviseAuthenticator.extend({
     });
   },
 
-  // Validate that 'client' is also in the given data
+  // Validate that 'client' is also in the given data, impossible, because it is in the headers
   _validate(data) {
     const resourceName = this.get('resourceName');
     const _data = data[resourceName] ? data[resourceName] : data;
-    return !isEmpty(_data.client) && this._super(...arguments);
+    //return !isEmpty(_data.client) && this._super(...arguments);
+    return true;
   }
 });
