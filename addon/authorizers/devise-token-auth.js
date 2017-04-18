@@ -27,7 +27,7 @@ export default DeviseAuthorizer.extend({
    */
   authorize(data, block) {
     const { client, accessToken, uid } = getProperties(data, 'client', 'accessToken', 'uid');
-    if (isEvery([client, accessToken, uid], isPresent)) {
+    if (isPresent(client)&& isPresent(accessToken)&& isPresent(uid)) {
       const authorizationHeaders = {
         client,
         uid,
